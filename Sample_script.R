@@ -4,10 +4,11 @@
 #                                                          #
 ############################################################
 
-# Add in your name
-# Add in purpose of this script
+# Cammy Beyts
+# This is where I can practice making a plot on soil temperature with elevation
 
-# Libraries ----
+# Libraries
+library(ggplot2)
 
 # Functions ----
 # This is a ggplot function for a nice clean theme
@@ -31,9 +32,22 @@ theme.clean <- function(){
 
 # Load data ----
 
+temp_elevation <- read.csv("/Users/cammybeyts/Documents/Edinburgh_PhD_documents/git_r/temp_elevation.csv")
+View(temp_elevation)
+
 # Make a plot showing how soil temperature changes with elevation ----
 
 # Save your plot in your project directory
 
 # Commit, pull, push!
+
+(temp.el <- ggplot (temp_elevation, aes(x = Elevation.m, y = Soil.temp.mean)) +
+   geom_point(colour = "#8B4513") +
+   geom_smooth(method = lm, colour = "#8B4513", fill = "#8B4513", alpha = 0.6) +
+   labs(x = "Elevation (m)", y = "Mean soil temperature (°C)") +
+   theme.clean())
+
+
+ 
+
 
